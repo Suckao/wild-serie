@@ -14,7 +14,18 @@ Class WildController extends AbstractController
     public function index() : Response
     {
         return $this->render('Wild/index.html.twig', [
-            'website' => 'Wild Séries',
+            'website' => 'Wild Series',
         ]);
+    }
+
+    /**
+     * @Route("/wild/show/{slug}", requirements={"slug"="[a-z0-9-]+$"}, defaults={"slug"=null}, name="wild_show")
+     */
+    public function show($slug): Response
+
+    {
+        $replace = str_replace("-", " ", $slug);
+        $result = ucwords($replace);
+        return $this->render('Wild/show.html.twig', ['slug' => $result]);
     }
 }
