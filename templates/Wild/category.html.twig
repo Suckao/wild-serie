@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for program in programs %}
+    <h1>{{ program.title }}</h1>
+        <img src="{{ program.poster }}">
+        <blockquote> {{ program.summary }}</blockquote>
+
+    {% endfor %}
+{% endblock %}
