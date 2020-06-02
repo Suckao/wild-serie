@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(formCategory) }}
+    {{ form_row(formCategory) }}
+    <button type="submit" name="btnSearch">Add</button>
+    {{ form_end(formCategory) }}
+    {% for categorys in category%}
+    <h3>{{ categorys.name}}</h3>
+    {% endfor %}
+{% endblock %}
