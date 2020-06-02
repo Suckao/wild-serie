@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% endblock %}
+{% block body %}
+    <h1>{{ programs.title }}</h1>
+    <img src="{{ programs.poster }}">
+    <h3> The {{ episodes.title }} in {{ seasons.description }}</h3>
+    <blockquote> {{ episodes.synopsis }}</blockquote>
+    <p> Series summary : {{ programs.summary }}</p>
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+
+{% endblock %}

@@ -4,7 +4,8 @@
     <h1>{{ program.title }}</h1>
     <h3> {{ season.description }}</h3>
     {% for episode in episodes %}
-        <h2>{{ episode.title }}</h2>
+        <h2> {{ episode.title }}</h2>
+        <a href="{{ path('wild_episode',{'id': episode.id}) }}"> See episode </a>
         <blockquote>{{ episode.synopsis }}</blockquote>
     {% endfor %}
     <a href="{{ path('wild_index') }}">

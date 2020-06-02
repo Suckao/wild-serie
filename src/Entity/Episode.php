@@ -106,5 +106,4 @@ class Episode
     {
         $this->season = $season;
     }
-
 }
