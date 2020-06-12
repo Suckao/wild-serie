@@ -1,4 +1,3 @@
 
     
-* VIDEO SYMFONY17
-    * https://www.loom.com/share/97c066feb21146f9837dfc761a4b43b6
+https://www.loom.com/share/0dc0c6c9595240f195a195383cd24baf
