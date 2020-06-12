@@ -26,6 +26,23 @@
         </tbody>
     </table>
 
+
+    <h1>{{ comments | length }} commentaires :
+        {% for comment in comments %}
+        <h2>{{ comment.author.email }}</h2>
+        <h4> rate: {{ comment.rate }}</h4>
+        <p> {{ comment.comment }}</p>
+        {% endfor %}
+
+        {% if not app.user %}
+            <h3> Connectez vous pour pouvoir laisser un commentaire !</h3>
+        {% else %}
+            {{ form_start(commentForm) }}
+            {{ form_widget(commentForm) }}
+            <button type="submit" class="btn btn-success">Commenter</button>
+            {{ form_end(commentForm) }}
+        {% endif %}
+
     <a href="{{ path('episode_index') }}">back to list</a>
 
     <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
