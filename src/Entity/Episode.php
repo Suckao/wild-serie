@@ -45,7 +45,7 @@ class Episode
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="Episode")
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="Episode", cascade={"remove"})
      */
     private $comments;
 

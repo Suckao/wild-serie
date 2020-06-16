@@ -6,6 +6,7 @@ use App\Entity\Program;
 use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
 use App\Service\Slugify;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -76,6 +77,7 @@ class ProgramController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{slug}/edit", name="program_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Program $program, Slugify $slugify): Response
@@ -100,6 +102,7 @@ class ProgramController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}", name="program_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Program $program): Response

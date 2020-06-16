@@ -31,8 +31,11 @@
         {% for comment in comments %}
         <h2>{{ comment.author.email }}</h2>
         <h4> rate: {{ comment.rate }}</h4>
-        <p> {{ comment.comment }}</p>
-        {% endfor %}
+        <p> {{ comment.comment }}
+            {% if app.user.id is same as (comment.author.id) %}
+            {% include '/comment/_delete_form.html.twig' %}
+            {% endif %}
+            {% endfor %}</p>
 
         {% if not app.user %}
             <h3> Connectez vous pour pouvoir laisser un commentaire !</h3>
@@ -44,8 +47,9 @@
         {% endif %}
 
     <a href="{{ path('episode_index') }}">back to list</a>
-
+    {% if is_granted('ROLE_ADMIN') %}
     <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
+    {% endif %}
 
     {{ include('episode/_delete_form.html.twig') }}
 {% endblock %}
